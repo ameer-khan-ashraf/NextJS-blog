@@ -4,28 +4,23 @@ import Link from 'next/link'
 import { getCategories } from '../services'
 
 const Categories = () => {
-  // const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
 
-  // useEffect(()=>{
-  //   getCategories()
-  //   .then((newCategories:any)=> {
-  //     setCategories(newCategories)
-  //   })
-  // },[]);
-
-  let categories = [
-    {
-      "name": "Web Development",
-      "slug": "webdev"
-    }
-  ]
+  useEffect(()=>{
+    getCategories()
+    .then((newCategories:any)=> {
+      setCategories(newCategories)
+    })
+  },[]);
 
   const categoryList = categories.map((category:{name: string; slug: string})=>{
+    return(
     <Link key={category.slug} href={`/category/${category.slug}`} >
       <span className='cursor-pointer block pb-3 mb-3'>
         {category.name}
       </span>
     </Link>
+    )
   })
   
   return (
