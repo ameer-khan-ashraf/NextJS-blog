@@ -1,9 +1,9 @@
 import { gql, GraphQLClient } from "graphql-request";
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string;
 const graphcmsToken = process.env.GRAPHCMS_TOKEN;
 
-export default async function comments(req,res){
+export default async function comments(req:any,res:any){
 
   console.log({graphcmsToken});
 
